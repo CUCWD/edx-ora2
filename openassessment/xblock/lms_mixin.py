@@ -1,7 +1,7 @@
 """
 Fields and methods used by the LMS and Studio.
 """
-from xblock.fields import DateTime, Dict, Float, Scope, String
+from xblock.fields import DateTime, Dict, Float, Scope, String, Boolean
 
 
 class GroupAccessDict(Dict):
@@ -26,6 +26,24 @@ class LmsCompatibilityMixin:
     display_name = String(
         default="Open Response Assessment", scope=Scope.settings,
         help="Display name"
+    )
+
+    from xmodule.fields import RelativeTime
+
+    estimated_time = RelativeTime(
+        display_name="Estimated Time",
+        help="The estimated time to complete this component. Formatted as HH:MM:SS. The maximum value is 23:59:59.",
+        scope=Scope.settings,
+        default="00:05:00",
+        enforce_type=True,
+    )
+
+    show_estimated_time = Boolean(
+        display_name="Estimated Time Toggle Display",
+        help="Used to show estimated time for this component. Not showing the time is the default.",
+        scope=Scope.settings,
+        default=False,
+        enforce_type=True,
     )
 
     start = DateTime(

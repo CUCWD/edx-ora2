@@ -166,6 +166,8 @@ class StudioMixin:
             'prompts': self.prompts,
             'prompts_type': self.prompts_type,
             'title': self.title,
+            'estimated_time': self.estimated_time,
+            'show_estimated_time': self.show_estimated_time,
             'submission_due': submission_due,
             'submission_start': submission_start,
             'assessments': assessments,
@@ -214,6 +216,7 @@ class StudioMixin:
             dict with keys 'success' (bool) and 'msg' (str)
         """
 
+        print(data)
         # Validate and sanitize the data using a schema
         # If the data is invalid, this means something is wrong with
         # our JavaScript, so we log an exception.
@@ -275,6 +278,8 @@ class StudioMixin:
         # so we can safely modify the XBlock fields.
         self.title = data['title']
         self.display_name = data['title']
+        self.estimated_time = data['estimated_time']
+        self.show_estimated_time = data['show_estimated_time']
         self.prompts = data['prompts']
         self.prompts_type = data['prompts_type']
         self.rubric_criteria = data['criteria']

@@ -105,6 +105,8 @@ EDITOR_UPDATE_SCHEMA = Schema({
     Required('title'): utf8_validator,
     Required('feedback_prompt'): utf8_validator,
     Required('feedback_default_text'): utf8_validator,
+    Required('estimated_time'): Any(datetime_validator, None),
+    Required('show_estimated_time'): bool,
     Required('submission_start'): Any(datetime_validator, None),
     Required('submission_due'): Any(datetime_validator, None),
     Required('text_response', default='required'): Any(All(utf8_validator, In(NECESSITY_OPTIONS)), None),

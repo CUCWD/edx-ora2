@@ -745,6 +745,12 @@ def serialize_content_to_xml(oa_block, root):
     if oa_block.group_access:
         root.set('group_access', json.dumps(GroupAccessDict().to_json(oa_block.group_access)))
 
+    if oa_block.estimated_time:
+        root.set('estimated_time', str(oa_block.estimated_time))
+
+    if oa_block.show_estimated_time:
+        root.set('show_estimated_time', str(oa_block.show_estimated_time))
+
     # Open assessment displayed title
     title = etree.SubElement(root, 'title')
     title.text = str(oa_block.title)
@@ -961,6 +967,8 @@ def parse_from_xml(root):
 
     return {
         'title': title,
+        'estimated_time': root.find('estimated_time'),
+        'show_estimated_time': root.find('show_estimated_time'),
         'prompts': prompts,
         'prompts_type': prompts_type,
         'rubric_criteria': rubric['criteria'],

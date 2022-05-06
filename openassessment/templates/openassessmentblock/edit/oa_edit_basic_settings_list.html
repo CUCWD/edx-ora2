@@ -7,6 +7,23 @@
         </div>
         <p class="setting-help">{% trans "The display name for this component." %}</p>
     </li>
+    <li id="openassessment_estimated_time_editor_wrapper" class="field comp-setting-entry">
+        <div class="wrapper-comp-setting">
+            <label for="openassessment_estimated_time_editor" class="setting-label">{% trans "Estimated Time "%}</label>
+            <input type="text" id="openassessment_estimated_time_editor" class="input setting-input" value="{{ estimated_time }}">
+        </div>
+        <p class="setting-help">{% trans "The estimated time to complete this component." %}</p>
+    </li>
+    <li id="openassessment_show_estimated_time_editor_wrapper" class="field comp-setting-entry">
+        <div class="wrapper-comp-setting">
+            <label for="openassessment_show_estimated_time_editor_wrapper" class="setting-label">{% trans "Show Estimated Time"%}</label>
+            <select id="openassessment_show_estimated_time_editor_wrapper" class="input setting-input" name="show estimated time">
+                <option value="0">{% trans "False"%}</option>
+                <option value="1" {% if show_estimated_time %} selected="true" {% endif %}>{% trans "True"%}</option>
+            </select>
+        </div>
+        <p class="setting-help">{% trans "Used to show estimated time for this component. Not showing the time is the default."%}</p>
+    </li>
     <li id="openassessment_submission_text_response_wrapper" class="field comp-setting-entry">
         <div class="wrapper-comp-setting">
             <label for="openassessment_submission_text_response" class="setting-label">{% trans "Text Response"%}</label>

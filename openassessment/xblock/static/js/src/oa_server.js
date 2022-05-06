@@ -452,6 +452,8 @@ export class Server {
   updateEditorContext(options) {
     const url = this.url('update_editor_context');
     const payload = JSON.stringify({
+      estimated_time: options.estimated_time,
+      show_estimated_time: options.show_estimated_time,
       prompts: options.prompts,
       prompts_type: options.prompts_type,
       feedback_prompt: options.feedbackPrompt,

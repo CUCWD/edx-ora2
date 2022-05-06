@@ -204,6 +204,24 @@ class OpenAssessmentBlock(MessageMixin,
         help="A title to display to a student (plain text)."
     )
 
+    from xmodule.fields import RelativeTime
+    
+    estimated_time = RelativeTime(
+        display_name="Estimated Time",
+        help="The estimated time to complete this component. Formatted as HH:MM:SS. The maximum value is 23:59:59.",
+        scope=Scope.settings,
+        default="00:05:00",
+        enforce_type=True,
+    )
+
+    show_estimated_time = Boolean(
+        display_name="Estimated Time Toggle Display",
+        help="Used to show estimated time for this component. Not showing the time is the default.",
+        scope=Scope.settings,
+        default=False,
+        enforce_type=True,
+    )
+
     leaderboard_show = Integer(
         default=0,
         scope=Scope.content,
@@ -886,6 +904,8 @@ class OpenAssessmentBlock(MessageMixin,
         block.submission_start = config['submission_start']
         block.submission_due = config['submission_due']
         block.title = config['title']
+        block.estimated_time = config['estimated_time']
+        block.show_estimated_time = config['show_estimated_time']
         block.prompts = config['prompts']
         block.prompts_type = config['prompts_type']
         block.text_response = config['text_response']
