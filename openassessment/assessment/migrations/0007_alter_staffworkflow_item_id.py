@@ -15,4 +15,29 @@ class Migration(migrations.Migration):
             name='item_id',
             field=models.CharField(db_index=True, max_length=255),
         ),
+        migrations.AlterField(
+            model_name='staffworkflow',
+            name='assessment',
+            field=models.CharField(blank=True, db_index=True, max_length=128, null=True),
+        ),
+        migrations.AlterField(
+            model_name='staffworkflow',
+            name='cancelled_at',
+            field=models.DateTimeField(blank=True, db_index=True, null=True),
+        ),
+        migrations.AlterField(
+            model_name='staffworkflow',
+            name='grading_completed_at',
+            field=models.DateTimeField(blank=True, db_index=True, null=True),
+        ),
+        migrations.AlterField(
+            model_name='staffworkflow',
+            name='grading_started_at',
+            field=models.DateTimeField(blank=True, db_index=True, null=True),
+        ),
+        migrations.AlterField(
+            model_name='staffworkflow',
+            name='scorer_id',
+            field=models.CharField(blank=True, db_index=True, max_length=40),
+        )
     ]
